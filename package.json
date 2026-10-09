@@ -4,6 +4,8 @@
   "description": "Go web starter component stories and figma code connects",
   "main": "index.js",
   "scripts": {
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/sam-maton/go-web-starter-design-kit/issues"
   },
-  "homepage": "https://github.com/sam-maton/go-web-starter-design-kit#readme"
+  "homepage": "https://github.com/sam-maton/go-web-starter-design-kit#readme",
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/html-vite": "^10.6.1",
+    "storybook": "^10.6.1",
+    "storybook-addon-pseudo-states": "^10.6.1",
+    "vite": "^8.3.4"
+  }
 }
