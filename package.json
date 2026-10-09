@@ -1,0 +1,21 @@
+{
+  "name": "go-web-starter-design-kit",
+  "version": "1.0.0",
+  "description": "Go web starter component stories and figma code connects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-maton/go-web-starter-design-kit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sam-maton/go-web-starter-design-kit/issues"
+  },
+  "homepage": "https://github.com/sam-maton/go-web-starter-design-kit#readme"
+}
