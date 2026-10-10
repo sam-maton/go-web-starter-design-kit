@@ -258,7 +258,8 @@ select:hover {
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline-color: var(--outline-accent);
+  outline: none;
+  border: 1.5px solid var(--outline-accent);
 }
 
 input[type="checkbox"],
@@ -279,7 +280,8 @@ select:user-valid,
 select[aria-valid="true"],
 textarea:user-valid,
 textarea[aria-valid="true"] {
-  border: 2px solid var(--outline-success);
+  border: 1.5px solid var(--outline-success);
+  border-radius: 0.25rem;
 }
 
 input:user-invalid,
@@ -288,7 +290,8 @@ select:user-invalid,
 select[aria-invalid="true"],
 textarea:user-invalid,
 textarea[aria-invalid="true"] {
-  border: 2px solid var(--outline-error);
+  border: 1.5px solid var(--outline-error);
+  border-radius: 0.25rem;
 }
 
 option {
