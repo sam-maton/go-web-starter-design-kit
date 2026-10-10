@@ -15,9 +15,9 @@ npm run storybook
 Open http://localhost:6006 and select **Elements / Button**.
 
 The Controls panel changes the label, solid/text/outline/icon variant, pinned
-interaction state, native disabled state, and sprite icon. The icon-only variant
-uses the label as its accessible name and tooltip, and defaults to the menu icon
-when no icon is selected. Clicks are recorded in Storybook's Actions panel.
+interaction state, native disabled state, and home icon visibility using a boolean
+toggle. The icon-only variant uses the label as its accessible name and tooltip.
+Clicks are recorded in Storybook's Actions panel.
 
 Use the theme toolbar to choose System, Light, or Dark. Hover, press, or tab to the
 button to try native interactions, or select a pinned state in Controls. The

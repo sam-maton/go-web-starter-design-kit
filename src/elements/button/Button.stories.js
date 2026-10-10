@@ -1,5 +1,5 @@
 import { fn } from "storybook/test";
-import spriteUrl from "../sprite.svg?url&no-inline";
+import spriteUrl from "../../../sprite.svg?url&no-inline";
 
 const states = {
   resting: [],
@@ -16,7 +16,7 @@ export default {
     variant: "solid",
     state: "resting",
     disabled: false,
-    icon: "none",
+    icon: false,
     onClick: fn(),
   },
   argTypes: {
@@ -33,21 +33,9 @@ export default {
     },
     disabled: { control: "boolean", description: "Native disabled attribute." },
     icon: {
-      control: "select",
-      options: [
-        "none",
-        "icon-home",
-        "icon-menu",
-        "icon-close",
-        "icon-buttons",
-        "icon-light-dark",
-        "icon-typography",
-        "icon-form-elements",
-        "icon-notifications",
-        "icon-table",
-        "icon-box",
-      ],
-      description: "Symbol from sprite.svg; icon-only buttons default to menu.",
+      control: "boolean",
+      if: { arg: "variant", neq: "icon" },
+      description: "Show or hide the home icon from sprite.svg.",
     },
     onClick: { control: false, table: { disable: true } },
   },
@@ -60,7 +48,7 @@ export default {
       button.setAttribute(`data-${variant}`, "");
     }
 
-    if (!disabled) {
+    if (!disabled && state !== "resting") {
       button.classList.add(...states[state]);
 
       if (state === "focus-visible") {
@@ -68,22 +56,15 @@ export default {
       }
     }
 
-    const iconId = icon === "none" && variant === "icon" ? "icon-menu" : icon;
-
-    if (iconId !== "none") {
+    if (icon || variant === "icon") {
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
       const size = variant === "icon" ? "24" : "20";
 
       svg.setAttribute("width", size);
       svg.setAttribute("height", size);
-      svg.setAttribute("viewBox", "0 0 24 24");
       svg.setAttribute("aria-hidden", "true");
-      svg.setAttribute("focusable", "false");
-      svg.style.flexShrink = "0";
-      use.setAttribute("href", `${spriteUrl}#${iconId}`);
-      use.setAttribute("width", "24");
-      use.setAttribute("height", "24");
+      use.setAttribute("href", `${spriteUrl}#icon-home`);
       svg.append(use);
       button.append(svg);
     }
@@ -100,22 +81,4 @@ export default {
   },
 };
 
-export const Solid = {};
-
-export const Text = { args: { variant: "text" } };
-
-export const Outline = { args: { variant: "outline" } };
-
-export const Icon = {
-  args: { variant: "icon", icon: "icon-menu", label: "Open menu" },
-};
-
-export const WithIcon = { args: { icon: "icon-home", label: "Home" } };
-
-export const Hover = { args: { state: "hover" } };
-
-export const Active = { args: { state: "active" } };
-
-export const FocusVisible = { args: { state: "focus-visible" } };
-
-export const Disabled = { args: { disabled: true } };
+export const Default = {};
